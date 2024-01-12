@@ -44,6 +44,17 @@ function inView(element) {
   );
 }
 
+// add an 'active' class to the section in view
+function setActiveSection() {
+  sections.forEach((section) => {
+    if (inView(section)) {
+      section.classList.add("your-active-class");
+    } else {
+      section.classList.remove("your-active-class");
+    }
+  });
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -85,4 +96,5 @@ function buildNavigation() {
 // Initialisation
 document.addEventListener("DOMContentLoaded", () => {
   buildNavigation();
+  window.addEventListener("scroll", setActiveSection);
 });
