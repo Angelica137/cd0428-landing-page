@@ -45,7 +45,7 @@ function buildNavigation() {
     const a = document.createElement("a");
 
     a.textContent = section.querySelector("h2").textContent;
-    a.ref = "#" + section.id;
+    a.href = "#" + section.id;
 
     li.appendChild(a);
     ul.appendChild(li);
