@@ -68,3 +68,8 @@ function buildNavigation() {
 // Scroll to section on link click
 
 // Set sections as active
+
+// Initialisation
+document.addEventListener("DOMContentLoaded", () => {
+  buildNavigation();
+});
