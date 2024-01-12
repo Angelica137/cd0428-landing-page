@@ -31,6 +31,19 @@ const navBar = document.getElementById("navBar");
  *
  */
 
+// Check is the section is in view
+function inView(element) {
+  const bounding = element.getBoundingClientRect();
+  return (
+    bounding.top >= 0 &&
+    bounding.left >= 0 &&
+    bounding.bottom <=
+      (window.innerHeight || document.documentElementcleintHeight) &&
+    bounding.right <=
+      (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
