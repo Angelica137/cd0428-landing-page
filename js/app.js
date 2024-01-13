@@ -38,10 +38,23 @@ function inView(element) {
     bounding.top >= 0 &&
     bounding.left >= 0 &&
     bounding.bottom <=
-      (window.innerHeight || document.documentElementcleintHeight) &&
+      (window.innerHeight || document.documentElement.clientHeight) &&
     bounding.right <=
       (window.innerWidth || document.documentElement.clientWidth)
   );
+}
+
+// Add class 'active' to section when near top of viewport
+// I moved this from main function section to see if I could
+// get the scroll to work
+function setActiveSection() {
+  sections.forEach((section) => {
+    if (inView(section)) {
+      section.classList.add("your-active-class");
+    } else {
+      section.classList.remove("your-active-class");
+    }
+  });
 }
 
 /**
@@ -66,24 +79,16 @@ function buildNavigation() {
   navBar.appendChild(ul);
 }
 
-// Add class 'active' to section when near top of viewport
-function setActiveSection() {
-  sections.forEach((section) => {
-    if (inView(section)) {
-      section.classList.add("your-active-class");
-    } else {
-      section.classList.remove("your-active-class");
-    }
-  });
-}
-
 // Scroll to anchor ID using scrollTO event
 document.querySelectorAll("#navbar__list a").forEach((anchor) => {
-  anchor.addEvenetListener("click", function (e) {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
     const sectionId = this.getAttribute("href").substring(1);
-    const section = documnet.getElementById(sectionId);
-    section.scrollIntoView({ behaviour: "smooth" });
+    const section = document.getElementById(sectionId);
+
+    // I do not think this is working. There was no change
+    //after implementation
+    section.scrollIntoView({ behavior: "smooth" });
   });
 });
 
