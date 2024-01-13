@@ -15,9 +15,30 @@ The goals of this project are to convert this project from a static webpage to a
 
 Completeing this will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
+## Dependencies
+- HTML
+- CSS3
+- Vanilla JavaScript
+- Google Fonts
+
+## Set up
+To run this project locally:
+1. Clone or download this repository.
+
+```
+git clone https://github.com/Angelica137/cd0428-landing-page.git
+```
+
+1. Navigate to the project directory.
+2. Open the index.html file in you browser.
+
 ## Usage
 To view and interact with this project:
 
-1. Clone or download the repository.
-2. Navigate to the project directory.
-3. Open the HTML file in you browser.
+- Click on any item in the navigation menu to scroll to the section.
+- See the dynamic highlightning of the section and the navigation item as you scroll through the page.
+
+## Author
+- Angelica Beristain
+- Starter code: Udacity
+
