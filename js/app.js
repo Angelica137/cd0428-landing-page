@@ -112,16 +112,15 @@ function buildNavigation() {
  * Begin Events
  */
 
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
-
 // Initialisation
 document.addEventListener("DOMContentLoaded", () => {
+  // Build menu
+  // I think this means nav?
   buildNavigation();
+  // Scroll to section on link click
+  // this function is declared above but called here
   addNavEventListeners();
+  // Set sections as active
   const throttleSetActiveSection = throttle(setActiveSection, 200);
   window.addEventListener("scroll", throttleSetActiveSection);
 });
