@@ -1,9 +1,23 @@
 # Landing Page Project
 
-## Instructions
+This is a project to practice DOM manipulation with JavaScript.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Summary
+The starter project was provided by Udacity and has some HTML and CSS styling to display a static version of the Landing Page.
 
-To get started, open `js/app.js` and start building out the app's functionality
+The goals of this project are to convert this project from a static webpage to an interactive one with these requirements:
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+- A top navigation is dynamically created from the sections on the landing page
+- Clicking on the navigation sections autoscrolls the user to the relevant section.
+- Each section is styled to identify it as the active seciton when in view.
+- Each section in the top navigation itself is highlghted when the section is active. 
+
+
+Completeing this will require modifying the HTML and CSS files, but primarily the JavaScript file.
+
+## Usage
+To view and interact with this project:
+
+1. Clone or download the repository.
+2. Navigate to the project directory.
+3. Open the HTML file in you browser.

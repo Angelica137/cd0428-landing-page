@@ -47,10 +47,15 @@ function inView(element) {
 // get the scroll to work, it works now
 function setActiveSection() {
   sections.forEach((section) => {
+    const navLink = document.querySelector(
+      `a[href="#${section.id}"]`
+    ).parentElement;
     if (inView(section)) {
       section.classList.add("your-active-class");
+      navLink.classList.add("active-link");
     } else {
       section.classList.remove("your-active-class");
+      navLink.classList.remove("active-link");
     }
   });
 }
