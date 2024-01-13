@@ -1,6 +1,6 @@
 # Landing Page Project
 
-This is a project to practice DOM manipulation with JavaScript.
+This is a project to practice DOM manipulation with JavaScript and is part of the Udacity Front End Web Developer Nanodegree.
 
 ## Summary
 The starter project was provided by Udacity and has some HTML and CSS styling to display a static version of the Landing Page.
