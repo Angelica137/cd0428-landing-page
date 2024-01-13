@@ -44,17 +44,6 @@ function inView(element) {
   );
 }
 
-// add an 'active' class to the section in view
-function setActiveSection() {
-  sections.forEach((section) => {
-    if (inView(section)) {
-      section.classList.add("your-active-class");
-    } else {
-      section.classList.remove("your-active-class");
-    }
-  });
-}
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -78,6 +67,15 @@ function buildNavigation() {
 }
 
 // Add class 'active' to section when near top of viewport
+function setActiveSection() {
+  sections.forEach((section) => {
+    if (inView(section)) {
+      section.classList.add("your-active-class");
+    } else {
+      section.classList.remove("your-active-class");
+    }
+  });
+}
 
 // Scroll to anchor ID using scrollTO event
 
