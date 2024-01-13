@@ -57,6 +57,21 @@ function setActiveSection() {
   });
 }
 
+// try implment throttle
+let isThrottled = false;
+const throttleDuration = 200;
+
+window.addEventListener("scroll", () => {
+  if (!isThrottled) {
+    setActiveSection();
+    isThrottled = true;
+
+    setTimeout(() => {
+      isThrottled = false;
+    }, throttleDuration);
+  }
+});
+
 /**
  * End Helper Functions
  * Begin Main Functions
