@@ -78,6 +78,14 @@ function setActiveSection() {
 }
 
 // Scroll to anchor ID using scrollTO event
+document.querySelectorAll("#navbar__list a").forEach((anchor) => {
+  anchor.addEvenetListener("click", function (e) {
+    e.preventDefault();
+    const sectionId = this.getAttribute("href").substring(1);
+    const section = documnet.getElementById(sectionId);
+    section.scrollIntoView({ behaviour: "smooth" });
+  });
+});
 
 /**
  * End Main Functions
