@@ -29,7 +29,7 @@ const navBar = document.getElementById("navBar");
  * Start Helper Functions
  */
 
-// Check is the section is in view
+// Check if the section is in view
 function inView(element) {
   const bounding = element.getBoundingClientRect();
   return (
@@ -44,7 +44,7 @@ function inView(element) {
 
 // Add class 'active' to section when near top of viewport
 // I moved this from main function section to see if I could
-// get the scroll to work
+// get the scroll to work, it works now
 function setActiveSection() {
   sections.forEach((section) => {
     if (inView(section)) {
