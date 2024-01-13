@@ -71,6 +71,21 @@ function throttle(func, duration) {
   };
 }
 
+// Scroll to anchor ID using scrollTO event
+// moved this from main so I can add this to the DOMContentLoaded
+function addNavEventListeners() {
+  document.querySelectorAll("#navbar__list a").forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const sectionId = this.getAttribute("href").substring(1);
+      const section = document.getElementById(sectionId);
+
+      // this needs css to work
+      section.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -92,18 +107,6 @@ function buildNavigation() {
   navBar.appendChild(ul);
 }
 
-// Scroll to anchor ID using scrollTO event
-document.querySelectorAll("#navbar__list a").forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const sectionId = this.getAttribute("href").substring(1);
-    const section = document.getElementById(sectionId);
-
-    // this needs css to work
-    section.scrollIntoView({ behavior: "smooth" });
-  });
-});
-
 /**
  * End Main Functions
  * Begin Events
@@ -118,6 +121,7 @@ document.querySelectorAll("#navbar__list a").forEach((anchor) => {
 // Initialisation
 document.addEventListener("DOMContentLoaded", () => {
   buildNavigation();
+  addNavEventListeners();
   const throttleSetActiveSection = throttle(setActiveSection, 200);
   window.addEventListener("scroll", throttleSetActiveSection);
 });
