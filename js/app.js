@@ -20,7 +20,6 @@
 
 /**
  * Define Global Variables
- *
  */
 const sections = document.querySelectorAll("section");
 const navBar = document.getElementById("navBar");
@@ -28,7 +27,6 @@ const navBar = document.getElementById("navBar");
 /**
  * End Global Variables
  * Start Helper Functions
- *
  */
 
 // Check is the section is in view
@@ -57,25 +55,25 @@ function setActiveSection() {
   });
 }
 
-// try implment throttle
-let isThrottled = false;
-const throttleDuration = 200;
+// try implment throttle + encapsulation
+function throttle(func, duration) {
+  let isThrottled = false;
 
-window.addEventListener("scroll", () => {
-  if (!isThrottled) {
-    setActiveSection();
-    isThrottled = true;
+  return function () {
+    if (!isThrottled) {
+      func.apply(this, arguments);
+      isThrottled = true;
 
-    setTimeout(() => {
-      isThrottled = false;
-    }, throttleDuration);
-  }
-});
+      setTimeout(() => {
+        isThrottled = false;
+      }, duration);
+    }
+  };
+}
 
 /**
  * End Helper Functions
  * Begin Main Functions
- *
  */
 
 // build the nav
@@ -101,8 +99,7 @@ document.querySelectorAll("#navbar__list a").forEach((anchor) => {
     const sectionId = this.getAttribute("href").substring(1);
     const section = document.getElementById(sectionId);
 
-    // I do not think this is working. There was no change
-    //after implementation
+    // this needs css to work
     section.scrollIntoView({ behavior: "smooth" });
   });
 });
@@ -110,7 +107,6 @@ document.querySelectorAll("#navbar__list a").forEach((anchor) => {
 /**
  * End Main Functions
  * Begin Events
- *
  */
 
 // Build menu
@@ -122,5 +118,6 @@ document.querySelectorAll("#navbar__list a").forEach((anchor) => {
 // Initialisation
 document.addEventListener("DOMContentLoaded", () => {
   buildNavigation();
-  window.addEventListener("scroll", setActiveSection);
+  const throttleSetActiveSection = throttle(setActiveSection, 200);
+  window.addEventListener("scroll", throttleSetActiveSection);
 });
